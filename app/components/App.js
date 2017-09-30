@@ -6,7 +6,7 @@ const Query = (props) => {
       <div className='bubble'>
         <h2>{props.title}</h2>
         <div className="text">{props.paragraph}</div>
-        <a style={{padding: '0px 10px 5px', display: 'block', textAlign:'right'}} target="_blank" href={props.link}>more info here</a>
+        <a style={{padding: '0px 10px 5px', display: 'block', textAlign:'right'}} target="_blank" href={props.link}>See full article</a>
       </div>
     </div>
   )
@@ -42,7 +42,6 @@ class Form extends React.Component {
       })
     }
   }
-
   render() {
     return (
       <form onInput={this.handleSubmit}>
@@ -79,7 +78,8 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1>Web Search Engine</h1>
+        <h1>Searchipedia</h1>
+        <p>Wiki Search Engine</p>
         <a target ="_blank" href="https://en.wikipedia.org/wiki/Special:Random"><i className="fa fa-random" aria-hidden="true"></i></a>
         <Form onInput={this.addNewResult}/>
         <QueryList query={this.state.data} />

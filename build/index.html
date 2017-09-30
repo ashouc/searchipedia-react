@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wikipedia Search Engine</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crushed" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style media="screen">
     /******PAGE SETUP******/
@@ -29,13 +31,23 @@
     #app {
       text-align: center;
     }
-    /******SEARCH FIELD******/
+    /******TITLE******/
     h1 {
-      padding: 50px 0 10px;
+      padding: 50px 0 0;
       display: inline-block;
-      font-size: 2.5em;
+      font-size: 3.5em;
       width: 100%;
+      color: rgba(55, 55, 55, 1);
+      font-family: 'Crushed', cursive;
+      letter-spacing: 2px;
     }
+    #app > div > p {
+      font-size: 1.5em;
+      padding-bottom: 10px;
+      color: #fff36f;
+      font-weight: 300;
+    }
+    /******SEARCH FIELD******/
     form {
       position: relative;
       height: 80px;
@@ -64,6 +76,7 @@
     }
     i.fa-random {
       cursor: pointer;
+      text-shadow: 0px 3px 9px #fff36f;
     }
     /******FULL LIST******/
     .list {

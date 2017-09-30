@@ -22407,7 +22407,7 @@ const Query = props => {
       React.createElement(
         'a',
         { style: { padding: '0px 10px 5px', display: 'block', textAlign: 'right' }, target: '_blank', href: props.link },
-        'more info here'
+        'See full article'
       )
     )
   );
@@ -22442,7 +22442,6 @@ class Form extends React.Component {
       });
     };
   }
-
   render() {
     return React.createElement(
       'form',
@@ -22484,7 +22483,12 @@ class App extends React.Component {
       React.createElement(
         'h1',
         null,
-        'Web Search Engine'
+        'Searchipedia'
+      ),
+      React.createElement(
+        'p',
+        null,
+        'Wiki Search Engine'
       ),
       React.createElement(
         'a',
