@@ -22393,25 +22393,21 @@ const Query = props => {
     { className: 'result' },
     React.createElement(
       'div',
-      { id: 'search' },
+      { className: 'bubble' },
+      React.createElement(
+        'h2',
+        null,
+        props.title
+      ),
       React.createElement(
         'div',
-        { style: { width: '350px', border: '1px solid black', borderRadius: '20px', padding: '0 10px' } },
-        React.createElement(
-          'h2',
-          null,
-          props.title
-        ),
-        React.createElement(
-          'div',
-          { className: 'text' },
-          props.paragraph
-        ),
-        React.createElement(
-          'a',
-          { style: { padding: '0px 10px 5px', display: 'block', textAlign: 'right' }, target: '_blank', href: props.link },
-          'more info here'
-        )
+        { className: 'text' },
+        props.paragraph
+      ),
+      React.createElement(
+        'a',
+        { style: { padding: '0px 10px 5px', display: 'block', textAlign: 'right' }, target: '_blank', href: props.link },
+        'more info here'
       )
     )
   );
@@ -22432,19 +22428,17 @@ class Form extends React.Component {
     this.state = { querySearch: '' };
     this.handleSubmit = event => {
       event.preventDefault();
-      console.log('submitted');
       let noSpaceText = this.state.querySearch.replace(/\s/, '%20');
       axios.get(`https://en.wikipedia.org/w/api.php`, {
         params: {
           action: 'opensearch',
           datatype: 'json',
-          limit: 3,
+          limit: 15,
           search: noSpaceText,
           origin: '*'
         }
       }).then(resp => {
-        console.log(resp);
-        this.props.onSubmit(resp.data);
+        this.props.onInput(resp.data);
       });
     };
   }
@@ -22452,17 +22446,13 @@ class Form extends React.Component {
   render() {
     return React.createElement(
       'form',
-      { onSubmit: this.handleSubmit },
-      React.createElement('input', { style: { margin: '10px 0px', width: '50%' },
+      { onInput: this.handleSubmit },
+      React.createElement('input', { style: { margin: '10px 0px', width: '75%' },
         value: this.state.querySearch,
         onChange: event => this.setState({ querySearch: event.target.value }),
         type: 'text',
-        placeholder: 'search here, or...', required: true }),
-      React.createElement(
-        'button',
-        { type: 'submit' },
-        'Search'
-      )
+        placeholder: 'Search here', required: true }),
+      React.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })
     );
   }
 }
@@ -22471,11 +22461,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [{ title: "Lorem Ipsum",
-        paragraph: "Lorem ipsum dolor sit amet, pro ut cibo putant, eius omittam in sea, in quo clita pericula prodesset. Evertitur persequeris eum te, qualisque incorrupte vim ad. Sea ex cetero perpetua. Has eu prompta platonem, everti albucius vulputate ne eum.",
-        link: 'https://en.wikipedia.org/wiki/Main_Page' }, { title: "Ipsum Lorem",
-        paragraph: "Ne per justo luptatum. Mea ea quod sint corpora. Usu no quot eros pertinacia, ius veri movet ad, nec unum alienum ea. An pro ullum recteque suscipiantur, an vel nemore doctus, lorem senserit indoctum cu his. Aliquip noluisse placerat eu mei. Torquatos incorrupte at mea. Natum probo temporibus at eam, purto eius eleifend per ea.",
-        link: 'https://en.wikipedia.org/wiki/Main_Page' }]
+      data: []
     };
 
     this.addNewResult = queryResult => {
@@ -22498,9 +22484,14 @@ class App extends React.Component {
       React.createElement(
         'h1',
         null,
-        'Wikipedia Search Field'
+        'Wikipedia Search Engine'
       ),
-      React.createElement(Form, { onSubmit: this.addNewResult }),
+      React.createElement(
+        'a',
+        { target: '_blank', href: 'https://en.wikipedia.org/wiki/Special:Random' },
+        React.createElement('i', { className: 'fa fa-random', 'aria-hidden': 'true' })
+      ),
+      React.createElement(Form, { onInput: this.addNewResult }),
       React.createElement(QueryList, { query: this.state.data })
     );
   }
