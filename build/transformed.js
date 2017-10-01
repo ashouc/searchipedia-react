@@ -22488,7 +22488,7 @@ class App extends React.Component {
       React.createElement(
         'p',
         null,
-        'Wiki Search Engine'
+        'Wikipedia Search Engine'
       ),
       React.createElement(
         'a',

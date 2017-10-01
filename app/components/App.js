@@ -79,7 +79,7 @@ class App extends React.Component {
     return (
       <div className='container'>
         <h1>Searchipedia</h1>
-        <p>Wiki Search Engine</p>
+        <p>Wikipedia Search Engine</p>
         <a target ="_blank" href="https://en.wikipedia.org/wiki/Special:Random"><i className="fa fa-random" aria-hidden="true"></i></a>
         <Form onInput={this.addNewResult}/>
         <QueryList query={this.state.data} />
