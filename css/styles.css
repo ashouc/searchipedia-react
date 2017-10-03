@@ -1,0 +1,116 @@
+/******PAGE SETUP******/
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #0BDBF2, #fff36f);
+  background-attachment: fixed !important;
+}
+.container {
+  display: inline-block;
+  height: 100%;
+  width: 92%;
+}
+#app {
+  text-align: center;
+}
+/******TITLE******/
+h1 {
+  padding: 50px 0 0;
+  display: inline-block;
+  font-size: 3.5em;
+  width: 100%;
+  color: rgba(55, 55, 55, 1);
+  font-family: 'Crushed', cursive;
+  letter-spacing: 2px;
+}
+#app > div > p {
+  font-size: 1.5em;
+  padding-bottom: 10px;
+  color: #fff36f;
+  font-weight: 300;
+}
+/******SEARCH FIELD******/
+form {
+  position: relative;
+  height: 80px;
+}
+input {
+  height: 50px;
+  border-radius: 50px;
+  padding-left: 10px;
+  font-size: 20px;
+  border: none;
+  color: #888;
+}
+input:focus {
+  outline: none;
+}
+i.fa {
+  font-size: 30px;
+  color: #888;
+  vertical-align: middle;
+  border: none;
+  background-color: transparent;
+  padding: 0 0 5px 5px;
+}
+i.fa-search {
+  margin-left: -40px;
+}
+i.fa-random {
+  cursor: pointer;
+  text-shadow: 0px 3px 9px #fff36f;
+}
+/******FULL LIST******/
+.list {
+  display: inline-block;
+  text-align: center;
+}
+/******ITEM******/
+h2 {
+  padding: 15px 0 0;
+}
+div.result{
+  display: inline-block;
+  width: 310px;
+  vertical-align: middle;
+  margin: 0 10px 10px;
+  text-align: left;
+  background-color: rgba(0, 193, 215, 1);
+  border-radius: 30px;
+  padding: 0;
+  color: rgba(255, 255, 255, 1);
+}
+.result:nth-child(odd) {
+  background-color: rgba(254, 253, 193, 1);
+  border-radius: 30px;
+  padding: 0 ;
+  color: rgba(65, 91, 101, 1);
+}
+div.bubble {
+  border-radius: 30px;
+  padding: 0 10px;
+}
+a, a:hover, a:visited {
+  cursor: pointer;
+  color: rgba(71, 122, 128, 1) ;
+  font-weight: 400;
+  text-decoration: none;
+}
+@media (max-width: 468px) {
+  div.result{
+    display: inline-block;
+    width: 92%;
+    vertical-align: middle;
+    margin: 0 -3px 10px;
+    text-align: left;
+    background-color: rgba(0, 193, 215, 1);
+    border-radius: 30px;
+    padding: 0;
+  }
+}
