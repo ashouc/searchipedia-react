@@ -22514,6 +22514,10 @@ class Form extends React.Component {
         this.props.onInput(resp.data);
       });
     };
+    this.changeQuery = event => {
+      debugger;
+      this.setState({ querySearch: event.target.value });
+    };
   }
   render() {
     return React.createElement(
@@ -22521,7 +22525,7 @@ class Form extends React.Component {
       { onInput: this.handleSubmit },
       React.createElement('input', { style: { margin: '10px 0px', width: '75%' },
         value: this.state.querySearch,
-        onChange: event => this.setState({ querySearch: event.target.value }),
+        onChange: this.changeQuery,
         type: 'text',
         placeholder: 'Search here', required: true }),
       React.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })

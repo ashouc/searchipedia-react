@@ -8,18 +8,23 @@ class App extends React.Component {
     this.state = {
       data : []
     };
-
+    this.normalizeData = (rawData) => {
+      return rawData[1].map(function(title, index) {
+        return {
+          title: title,
+          paragraph: rawData[2][index],
+          link: rawData[3][index]
+        }
+      })
+    }
     this.addNewResult = (queryResult) => {
-      this.setState({data: []})
-      for (let i = 0; i < queryResult[1].length; i++) {
-        this.state.data.push({
-          title: queryResult[1][i],
-          paragraph: queryResult[2][i],
-          link: queryResult[3][i]
-        })
-      };
-      this.setState({data: this.state.data})
-    };
+      if(queryResult === null) {
+        this.setState({data: []})
+        return;
+      }
+      const searchResult = this.normalizeData(queryResult)
+      this.setState({ data: searchResult });
+    }
   };
 
   render() {
